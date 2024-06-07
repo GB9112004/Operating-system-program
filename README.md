@@ -466,3 +466,70 @@ Output
 
 Following is the SAFE Sequence
  P1 -> P3 -> P4 -> P0 -> P2
+
+
+ FCFS ALGORITHM
+ #include<stdio.h>
+ 
+ int main()
+ 
+{
+    int n,bt[30],wait_t[30],turn_ar_t[30],av_wt_t=0,avturn_ar_t=0,i,j;
+    printf("Please enter the total number of processes(maximum 30):");  // the maximum process that be used to calculate is specified.
+    scanf("%d",&n);
+ 
+    printf("\nEnter The Process Burst Timen");
+    for(i=0;i<n;i++)  // burst time for every process will be taken as input
+    {
+        printf("P[%d]:",i+1);
+        scanf("%d",&bt[i]);
+    }
+ 
+    wait_t[0]=0;   
+ 
+    for(i=1;i<n;i++)
+    {
+        wait_t[i]=0;
+        for(j=0;j<i;j++)
+            wait_t[i]+=bt[j];
+    }
+ 
+    printf("\nProcess\t\tBurst Time\tWaiting Time\tTurnaround Time");
+ 
+    for(i=0;i<n;i++)
+    {
+        turn_ar_t[i]=bt[i]+wait_t[i];
+        av_wt_t+=wait_t[i];
+        avturn_ar_t+=turn_ar_t[i];
+        printf("\nP[%d]\t\t%d\t\t\t%d\t\t\t\t%d",i+1,bt[i],wait_t[i],turn_ar_t[i]);
+    }
+ 
+    av_wt_t/=i;
+    avturn_ar_t/=i;  // average calculation is done here
+    printf("\nAverage Waiting Time:%d",av_wt_t);
+    printf("\nAverage Turnaround Time:%d",avturn_ar_t);
+ 
+    return 0;
+}
+
+n the context of process scheduling, burst time refers to the amount of time a process requires to complete its execution. It is the time required by a process to execute its CPU-bound instructions. In other words, it is the time spent by a process in the running state, executing its instructions.
+
+Burst time is an important parameter in process scheduling, as it determines how long a process will occupy the CPU. A process with a shorter burst time will complete its execution quickly, while a process with a longer burst time will take more time to complete.
+
+Turnaround Time
+
+Turnaround time is the total time taken by a process to complete its execution, from the time it arrives in the ready queue to the time it finishes its execution. It includes the time spent waiting in the ready queue, the time spent executing on the CPU, and any other overheads.
+
+Turnaround time is an important performance metric in process scheduling, as it measures the responsiveness of the system. A shorter turnaround time indicates that the system is responsive and can complete processes quickly, while a longer turnaround time indicates that the system is slow and may be experiencing congestion.
+
+The turnaround time can be calculated using the following formula:
+
+Turnaround Time = Completion Time - Arrival Time
+
+where:
+
+Completion Time is the time at which the process finishes its execution
+Arrival Time is the time at which the process arrives in the ready queue
+In the code snippet I explained earlier, the turnaround time is calculated as the sum of the burst time and waiting time: turn_ar_t[i] = bt[i] + wait_t[i];. This is because the waiting time is the time spent waiting in the ready queue, and the burst time is the time spent executing on the CPU.
+
+
