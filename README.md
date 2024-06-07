@@ -293,3 +293,29 @@ END {
 save this content in vi emp.awk
 sva the data in vi employees1.csv
 to execute awk -f emp.awk employees1.csv
+
+
+EGIN{PRINT "RESULT"}
+{
+count=0
+if($2>45 && $3>45)
+{
+printf "The students is pass"
+count++
+}
+else
+{
+c++
+}
+}
+END{
+printf "The total pass is :"count
+printf "The total fail isn :"c
+}
+ store it in marks.awk
+ name,mark1,mark2,mark3,mark4,mark5
+bala,73,66,79,90,67
+bhu,45,88,96,45,66
+
+store it in marks.csv
+awk -f marks.awk marks.csv to execute(do not add %d here remember it please)
