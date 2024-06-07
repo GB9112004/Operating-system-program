@@ -547,3 +547,20 @@ If such a block is found, it is allocated to the process.
 If no such block is found, the process is not allocated memory.
 
 
+SYSTEM CALL TRACING
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+Write a c program to print hello world.- named helloworld.c  or any  other name
+Execute : gcc helloworld.c -o hello
+strace -o hellotrace ./hello
+vi systemcall.sh
+// systemcall.sh
+cat hellotrace|cut -f1 -d “(“
+sh systemcall.sh
+cat hellotrace | cut -f1 -d '('
+
+
