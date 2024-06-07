@@ -264,3 +264,32 @@ void main()
     
     implimentFirstFit(blockSize, m, processSize, n);
 }
+
+
+AVERAGE PAY OF EMPLOYEES
+
+BEGIN{FS=","}
+
+BEGIN{sum=0; count=0}
+{
+if($2>6000 && $3>4)
+{
+sum=sum+$2
+count++
+}
+}
+END{
+if(count>0)
+{
+avg_sal=sum/count
+printf "The average salary of employess is  %.2f\n",avg_sal
+}
+else
+{
+printf "No employee meet the criteria"
+} 
+}
+
+save this content in vi emp.awk
+sva the data in vi employees1.csv
+to execute awk -f emp.awk employees1.csv
