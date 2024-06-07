@@ -533,3 +533,17 @@ Arrival Time is the time at which the process arrives in the ready queue
 In the code snippet I explained earlier, the turnaround time is calculated as the sum of the burst time and waiting time: turn_ar_t[i] = bt[i] + wait_t[i];. This is because the waiting time is the time spent waiting in the ready queue, and the burst time is the time spent executing on the CPU.
 
 
+BEST FIT
+The algorithm maintains a list of free memory blocks of various sizes.
+When a process requests memory, the algorithm searches for the smallest free block that is large enough to satisfy the request.
+If such a block is found, it is allocated to the process.
+If no such block is found, the process is not allocated memory.
+
+FIRST FIT
+
+The OS maintains a list of free memory blocks of various sizes.
+When a process requests memory, the OS searches for the smallest free block that is large enough to satisfy the request.
+If such a block is found, it is allocated to the process.
+If no such block is found, the process is not allocated memory.
+
+
