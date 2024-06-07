@@ -319,3 +319,13 @@ bhu,45,88,96,45,66
 
 store it in marks.csv
 awk -f marks.awk marks.csv to execute(do not add %d here remember it please)
+
+
+
+SIGNAL CATCHING
+
+#include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+and write the program in it
