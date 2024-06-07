@@ -380,3 +380,16 @@ int main()
     printf("\nTotal Page Faults:\t%d\n", pageFaults);  
     return 0;  
 } 
+
+Page:
+
+A page is a unit of memory that is requested by a process or program.
+In the program, the incomingStream array represents a sequence of page requests.
+Each element of the incomingStream array is a page number, which is a unique identifier for a page.
+Pages are the units of memory that are being managed by the program.
+Frame:
+
+A frame is a slot in physical memory that can hold a page.
+In the program, the temp array represents the frames in physical memory.
+Each element of the temp array corresponds to a frame, and its value represents the page number that is currently stored in that frame.
+Frames are the physical memory locations where pages are stored.
