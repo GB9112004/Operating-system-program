@@ -268,26 +268,26 @@ void main()
 
 AVERAGE PAY OF EMPLOYEES
 
-BEGIN{FS=","}
+BEGIN {
+    FS = ", "
+    sum = 0
+    count = 0
+}
 
-BEGIN{sum=0; count=0}
 {
-if($2>6000 && $3>4)
-{
-sum=sum+$2
-count++
+    if ($2 > 6000 && $3 > 4) {
+        sum = sum + $2  # assuming $2 is the salary column
+        count++
+    }
 }
-}
-END{
-if(count>0)
-{
-avg_sal=sum/count
-printf "The average salary of employess is  %.2f\n",avg_sal
-}
-else
-{
-printf "No employee meet the criteria"
-} 
+
+END {
+    if (count > 0) {  # changed from count > 1 to count > 0
+        avg_salary = sum / count
+        printf "The average salary of employees is %.2f\n", avg_salary
+    } else {
+        printf "No employee matches the criteria\n"
+    }
 }
 
 save this content in vi emp.awk
